@@ -1,4 +1,4 @@
-package com.company;
+package com.javachess;
 
 
 /**
@@ -20,9 +20,6 @@ public class King extends ChessPiece {
         int old2 = current.getPos2();
         if (new1 == old1 && new2 == old2) return false;
         if(board[new1][new2] != null && board[new1][new2].isWhite() == this.isWhite()) return false;
-        if (((new1 == old1 + 1) || (new1 == old1 - 1) || (new1 == old1)) && (new2 == old2 || new2 == old2 + 1 || new2 == old2 - 1)) {
-            return true;
-        }
-        return false;
+        return ((new1 == old1 + 1) || (new1 == old1 - 1) || (new1 == old1)) && (new2 == old2 || new2 == old2 + 1 || new2 == old2 - 1);
     }
 }

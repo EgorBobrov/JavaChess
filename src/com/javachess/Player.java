@@ -1,4 +1,4 @@
-package com.company;
+package com.javachess;
 
 /**
  * Created by Egor_Bobrov on 29-Feb-16.

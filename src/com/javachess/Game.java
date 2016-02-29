@@ -1,4 +1,4 @@
-package com.company;
+package com.javachess;
 
 import java.util.ArrayList;
 

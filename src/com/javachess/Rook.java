@@ -1,4 +1,4 @@
-package com.company;
+package com.javachess;
 
 
 
@@ -42,7 +42,7 @@ public class Rook extends ChessPiece {
         }
         if (new2 < old2) {
             for (int i = old2; i > new2; i--) {
-                if (board[old1][i] != null) return false;;
+                if (board[old1][i] != null) return false;
             }
         }
         return true;
