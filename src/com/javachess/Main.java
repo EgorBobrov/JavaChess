@@ -84,8 +84,13 @@ public class Main {
                 return chessPiece.isWhite() ? "K" : "k";
 
             case "enPassant":
+                return "_";
+
+            /* visualisation of "en passant" objects for testing purposes
+            case "enPassant":
                 return "*";
-            }
+            */
+        }
         return "";
     }
 
