@@ -20,59 +20,64 @@ public class Queen extends ChessPiece {
 
         if (new1 == old1 && new2 == old2) return false;
         if ((board[new1][new2] != null) && (board[new1][new2].isWhite() == this.isWhite())) return false;
+
+        // if it moves like a rook
         if ((new1 == old1) || (new2 == old2)) {
             if (new1 > old1) {
-                for (int i = old1; i < new1; i++) {
+                for (int i = old1 + 1; i < new1; i++) {
                     if (board[i][old2] != null) return false;
                 }
                 return true;
             }
             if (new1 < old1) {
-                for (int i = old1; i > new1; i--) {
+                for (int i = old1 - 1; i > new1; i--) {
                     if (board[i][old2] != null) return false;
                 }
                 return true;
             }
 
             if (new2 > old2) {
-                for (int i = old2; i < new2; i++) {
+                for (int i = old2 + 1; i < new2; i++) {
                     if (board[old1][i] != null) return false;
                 }
                 return true;
             }
             if (new2 < old2) {
-                for (int i = old2; i > new2; i--) {
+                for (int i = old2 - 1; i > new2; i--) {
                     if (board[old1][i] != null) return false;
                 }
                 return true;
             }
         }
 
+        // if it can not move like a rook, let's check if it can move like a bishop
         if ((Math.abs(old1 - new1)) != Math.abs(old2 - new2)) return false;
 
+        // if it moves like a bishop, let's check it can go to the destination unhindered
         if (new1 > old1 && new2 > old2) {
-            for (int i = old1, j = old2; i < new1; i++, j++) {
+            for (int i = old1 + 1, j = old2 + 1; i < new1; i++, j++) {
                 if (board[i][j] != null) return false;
             }
             return true;
         }
         else if (new1 > old1) {
-            for (int i = old1, j = old2; i < new1; i++, j--) {
+            for (int i = old1 + 1, j = old2 - 1; i < new1; i++, j--) {
                 if (board[i][j] != null) return false;
             }
             return true;
         }
         else if (new2 > old2) {
-            for (int i = old1, j = old2; i > new1; i--, j++) {
+            for (int i = old1 - 1, j = old2 + 1; i > new1; i--, j++) {
                 if (board[i][j] != null) return false;
             }
             return true;
         }
-        else {
-            for (int i = old1, j = old2; i < new1; i--, j--) {
+        else if (new1 < old1 && new2 < old2) {
+            for (int i = old1 - 1, j = old2 - 1; i < new1; i--, j--) {
                 if (board[i][j] != null) return false;
             }
             return true;
         }
+        return false;
     }
 }

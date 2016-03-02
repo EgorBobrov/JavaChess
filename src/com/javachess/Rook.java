@@ -25,23 +25,23 @@ public class Rook extends ChessPiece {
         if ((board[new1][new2] != null) && (board[new1][new2].isWhite() == this.isWhite())) return false;
 
         if (new1 > old1) {
-            for (int i = old1; i < new1; i++) {
+            for (int i = old1 + 1; i < new1; i++) {
                 if (board[i][old2] != null) return false;
             }
         }
         if (new1 < old1) {
-            for (int i = old1; i > new1; i--) {
+            for (int i = old1 - 1; i > new1; i--) {
                 if (board[i][old2] != null) return false;
             }
         }
 
         if (new2 > old2) {
-            for (int i = old2; i < new2; i++) {
+            for (int i = old2 + 1; i < new2; i++) {
                 if (board[old1][i] != null) return false;
             }
         }
         if (new2 < old2) {
-            for (int i = old2; i > new2; i--) {
+            for (int i = old2 - 1; i > new2; i--) {
                 if (board[old1][i] != null) return false;
             }
         }

@@ -5,7 +5,8 @@ package com.javachess;
 /**
  * Created by Egor_Bobrov on 29-Feb-16.
  */
-public class Bishop extends ChessPiece {
+public class
+    Bishop extends ChessPiece {
 
     public Bishop (boolean isWhite, int pos1, int pos2) {
         super(isWhite, pos1, pos2);
@@ -26,22 +27,22 @@ public class Bishop extends ChessPiece {
         if ((Math.abs(old1 - new1)) != Math.abs(old2 - new2)) return false;
 
         if (new1 > old1 && new2 > old2) {
-            for (int i = old1, j = old2; i < new1; i++, j++) {
+            for (int i = old1 + 1, j = old2 + 1; i < new1; i++, j++) {
                 if (board[i][j] != null) return false;
             }
         }
         else if (new1 > old1) {
-            for (int i = old1, j = old2; i < new1; i++, j--) {
+            for (int i = old1 + 1, j = old2 - 1; i < new1; i++, j--) {
                 if (board[i][j] != null) return false;
             }
         }
         else if (new2 > old2) {
-            for (int i = old1, j = old2; i > new1; i--, j++) {
+            for (int i = old1 - 1, j = old2 + 1; i > new1; i--, j++) {
                 if (board[i][j] != null) return false;
             }
         }
-        else {
-            for (int i = old1, j = old2; i < new1; i--, j--) {
+        else if (new1 < old1 && new2 < old2){
+            for (int i = old1 - 1, j = old2 - 1; i < new1; i--, j--) {
                 if (board[i][j] != null) return false;
             }
         }

@@ -6,8 +6,23 @@ package com.javachess;
  */
 public class Pawn extends ChessPiece {
 
+    private boolean passed;
+
     public Pawn(boolean isWhite, int pos1, int pos2) {
         super(isWhite, pos1, pos2);
+        this.passed = false;
+    }
+
+    public boolean isPassed() {
+        return this.passed;
+    }
+
+    public void makePass() {
+        this.passed = true;
+    }
+
+    public void turnPassed() {
+        this.passed = false;
     }
 
     boolean isMoveValid(ChessPiece[][] board, Position newPosition) {
